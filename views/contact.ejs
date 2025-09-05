@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL-Shortner | contact</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav class="navbar bg-dark border-bottom navbar-expand-lg">
+    <div class="container-fluid px-5">
+        <a class="navbar-brand ms-5" href="/">URL-Shortner</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto ps-5 mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/signup">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                <% if(!user) { %>
+                <a class="nav-link" href="login">Log In</a>
+                <% } else { %>
+                    <a class="nav-link" href="/logout">Log Out</a>
+                <% } %>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact Us</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="link-section py-5">
+        <div class="container-fluid">
+            <div class="heading text-center">
+                <h1 class="text-uppercase">
+                    Link Shortener App
+                </h1>
+            </div>
+        </div>
+        <div class="container py-4">
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="contact-container border p-4 rounded justify-content-center text-dark">
+                    <div class="row">
+                        <div class="col-md-9 mx-auto">
+                            <h6 class="text-center text-uppercase text-dark">Get in Touch</h6>
+                            <p class="text-center text-purple">If you have any query or feedback, feel free to reach out to us!</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                        <form action="/contact" method="post" class="">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                    <label for="name" class="form-label ">Enter Full Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" required style="height: 40px;">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                    <label for="email" class="form-label">Enter Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" style="height: 40px;">
+                                </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                    <label for="message" class="form-label">Type Your Message</label>
+                                    <textarea class="form-control" id="message" name="message" rows="4" max-rows="5"></textarea>
+                                    </div>
+                                </div>
+
+                                <% if (message && message.length > 0) { %>
+                                <div class="alert alert-info d-flex justify-content-center align-content-center">
+                                <p class="text-dark">
+                                <%= Array.isArray(message) ? message[0] : message %>
+                                </p>
+                                </div>
+                                <% } %>
+
+                                <div class="row mx-auto">
+                                    <button type="submit" class="btn btn-primary">submit</button>
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <form action="/contact" method="post" class="">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Enter Full Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required style="height: 40px;">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Custom Short URL</label>
+                            <input type="email" class="form-control" id="email" name="email" style="height: 40px;">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Type your message</label>
+                            <textarea class="form-control" id="message" name="message" style="height: 40px;"></textarea>
+                        </div>
+
+                    <% if (message && message.length > 0) { %>
+                    <div class="alert alert-info">
+                        <p class="text-dark">
+                            <%= Array.isArray(message) ? message[0] : message %>
+                        </p>
+                    </div>
+                    <% } %>
+                        <button type="submit" class="btn btn-primary ">Shorten</button>
+                    </form> -->
+
+   <section class="footer">
+    <div class="d-flex align-items-center justify-content-center">
+        <span>copyright &copy; 2024</span>
+    </div>
+   </section>
+    
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
