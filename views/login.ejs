@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL-Shortner</title>
+    <title>URL-Shortner | Log In</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <nav class="navbar bg-dark border-bottom navbar-expand-lg">
     <div class="container-fluid px-5">
-        <a class="navbar-brand ms-5" href="/">URL-Shortner</a>
+        <a class="navbar-brand ms-md-5 ms-0" href="/">URL-Shortner</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         <span class="navbar-toggler-icon"></span>
@@ -20,14 +20,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto ps-5 mb-2 mb-lg-0">
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                <a class="nav-link " aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="/signup">Sign In</a>
                 </li>
                 <li class="nav-item">
                 <% if(!user) { %>
-                <a class="nav-link" href="login">Log In</a>
+                <a class="nav-link active" href="login">Log In</a>
                 <% } else { %>
                     <a class="nav-link" href="/logout">Log Out</a>
                 <% } %>
