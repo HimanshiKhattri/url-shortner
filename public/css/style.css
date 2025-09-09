@@ -158,3 +158,20 @@ ul {
     font-size: 1rem;
     font-weight: 500;
 }
+
+.btn-square {
+    height: 40px;
+    width: 40px;
+    transition: all .5ms ease-in-out;
+}
+
+.btn-square i {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    transition: all .5ms ease-in-out;
+}
+
+.btn-square i:hover {
+    color: var(--text-color);
+    font-size: 1.4rem;
+}
