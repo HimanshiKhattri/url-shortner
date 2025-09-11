@@ -21,9 +21,12 @@ li {
     list-style: none;
 }
 
+
 ul {
     padding: 0;
 }
+
+/* button */
 
 .btn-primary {
     background-color: var(--primary-color);
@@ -43,6 +46,8 @@ ul {
     color: var(--secondary-color);
 }
 
+
+/* navbar */
 .navbar {
     background-color: var(--background-color);
 }
@@ -50,6 +55,7 @@ ul {
 .navbar .navbar-brand {
     color: var(--primary-color);
     font-weight: 600;
+    font-size: 1.35rem;
 }
 
 .navbar .navbar-nav .nav-item .nav-link {
@@ -87,8 +93,13 @@ ul {
     font-size: 1.5rem;
     font-weight: 500;
     color: #a48db3;
+    position: relative;
+    top: 0;
+    left: 0;
 
 }
+
+/* link section */
 .link-section .link-container {
     width: 320px;
     height: auto;
@@ -106,10 +117,53 @@ ul {
     color: #302d2d;
 }
 
-.link-section .link-shorten h3{
-    font-size: 1.3rem;
+input[type="password"] {
+  padding-right: 35px;
 }
 
+.eye-button {
+
+    cursor: pointer;
+    position: absolute;
+    bottom: 9px;
+    right: 6px;
+    z-index: 2;
+}
+
+.link-section .link-shorten h3,
+.contact-container .link-shorten h6{
+    font-size: 1.3rem;
+    position: relative;
+    top: 0;
+    left: 0;
+    /* background-image: url('../images/heading.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 0px 92%;
+    margin: 0 0px 0 10px;
+    padding: 10px 30px 25px 15px; */
+}
+
+.contact-container .link-shorten h6 {
+    font-size: 1.05rem;
+}
+
+.link-section .link-shorten h3::after,
+.contact-container .link-shorten h6::after {
+    position: absolute;
+    content: "";
+    height: 3px;
+    width: 100px;
+    background-color: var(--secondary-color);
+    bottom: -10%;
+    left: 15%;
+}
+.contact-container .link-shorten h6::after {
+    left: 5%;
+    bottom: -15%;
+}
+
+/* sortened area */
 .shortened {
     max-width: 60vw;
     word-break: break-all;
@@ -129,6 +183,10 @@ ul {
     text-decoration: underline;
 }
 
+.shortened li {
+    list-style: circle;
+}
+
 @media (max-width: 768px) {
     .shortened {
         max-width: 90vw;
@@ -141,6 +199,12 @@ ul {
         width: 80%;
     }
 }  
+
+@media (max-width: 500px) {
+    .shortened li {
+    list-style: none;
+    }    
+}
 
 /* contact section */
 .contact-container {
@@ -159,6 +223,8 @@ ul {
     font-weight: 500;
 }
 
+/* footer area */
+
 .btn-square {
     height: 40px;
     width: 40px;
@@ -175,3 +241,4 @@ ul {
     color: var(--text-color);
     font-size: 1.4rem;
 }
+

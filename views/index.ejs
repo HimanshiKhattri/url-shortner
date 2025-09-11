@@ -14,8 +14,8 @@
         body {
             background: url("/images/img2.jpg") no-repeat fixed center;
             /* background-blend-mode: lighten; */
-             -webkit-backdrop-filter: blur(3px);
-            backdrop-filter: blur(3px);
+             -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px);
 
         }
     </style>
@@ -31,7 +31,7 @@
 
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto ps-5 mb-2 mb-lg-0">
+            <ul class="navbar-nav mx-auto ps-md-5 ps-3 mb-2 mb-lg-0">
                 <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
@@ -58,9 +58,15 @@
         <div class="container-fluid">
             <div class="heading text-center">
                 <h1 class="text-uppercase">
-                    link shortener app
+                    link shortener tool
                 </h1>
+
+                <%if (user) { %>
+                    <h5 class="text-center text-capitalize mb-1 mt-3">Welcome, <%= user.username %> </h5>
+                <% } %>
+                <p class="text-white mb-0">Transform Long URLs into Clean, Clickable Links!</p>
             </div>
+            
         </div>
         <div class="container py-4">
             <div class="d-flex justify-content-center align-items-center flex-column">
@@ -92,7 +98,17 @@
                         <% if(links && links.length > 0) { %>
                         <ul >
                             <% links.forEach(link => {  %>
-                            <li><a href="<%= link.longUrl %>" target="_blank"><strong><%= host %>/<%= link.shortUrl %></strong></a> -><%= link.longUrl %></li>
+                            <li class="pb-1">
+                                <a href="<%= link.longUrl %>" target="_blank">
+                                    <strong><%= host %>/<%= link.shortUrl %></strong>
+                                </a>->
+                                <!-- <%= link.longUrl %> -->
+                                 <% if(link.longUrl.length > 30) { %>
+                                    <%= link.longUrl.slice(0 , 30) + '...' %>
+                                <% } else { %>
+                                    <%= link.longUrl %>
+                                <% } %>
+                            </li>
                             <% }) %>
                         </ul>
                         <% } else { %> 

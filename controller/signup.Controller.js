@@ -16,13 +16,13 @@ exports.getsignup = async (req , res) => {
 exports.createUser = async ( req , res ) => {
     if(req.user) {
         // already logged in
-        req.flash("message", "you are already logged In, create your short URL.")
+        req.flash("message", "You are already logged In, create your short URL.")
         return res.redirect('/');
     }
     
     const { name, email , password } = req.body;
     try {
-        // console.log( name , email , password);
+        
         if(!name || !email || !password) {
             req.flash("message", "All fields are required.");
             return await res.status(400).redirect("/signup");
@@ -32,24 +32,22 @@ exports.createUser = async ( req , res ) => {
             email: email
         });
         if(existUser) {
-            // console.log("user exist");
+            
             return await res.status(403)
             .render("signup" , {
                 user: req.user || null,
-                message : " user already exists. please login." 
+                message : " User already exists. please login." 
             });
         }
 
         const hashedPassword =  await argon2.hash(password);
         const user  = await users.create({ name , email , password: hashedPassword });
         // await user.save();
-        await res.status(201).render("login", { 
-            user: req.user || null,
-            message : "signup successfully, Please Login."
-        });
+        req.flash("message", "Signup successfully, Please Login.");
+        await res.status(201).redirect('/login');
     } catch (error) {
         console.error("error:", error.message);
-        res.status(500).send( 'internal server error')
+        res.status(500).send( 'Internal Server Error')
     }
 }
 

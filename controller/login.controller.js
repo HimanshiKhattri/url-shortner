@@ -25,8 +25,7 @@ exports.loginUser = async ( req, res ) => {
 
         if(!user) {
                 return await res.status(404).render('login' , { 
-                message: "user not found, please signup.",
-            //     user: req.user || null
+                message: "User not found, please signup.",
             });
         }
 
@@ -34,13 +33,14 @@ exports.loginUser = async ( req, res ) => {
         if(!passwordValid) {
             return await res.status(401).render('login', { 
                 message: "Incorrect credentials. please try again.",
-                // user: req.user || null
+               
             });
         }
         // console.log(user)
         const token = jwt.sign({
             id: user._id,
             email: user.email,
+            username: user.name,
         }, process.env.JWT_SECRET_KEY, { 
             expiresIn: '7d' 
         });
@@ -56,7 +56,7 @@ exports.loginUser = async ( req, res ) => {
         
     } catch (error) {
         console.error("error: ", error);
-        res.status(500).send("internal server error");
+        res.status(500).send("Internal Server Error");
     }
 }
 
@@ -68,6 +68,6 @@ exports.logOutUser = async ( req, res ) => {
         return await res.redirect("/login");
     } catch (error) {
         console.error("error: ", error);
-        res.status(500).send("internal server error");
+        res.status(500).send("Internal Server Error");
     }
 }

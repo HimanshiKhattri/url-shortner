@@ -29,7 +29,7 @@ exports.postUrl =  async ( req, res ) => {
 
     // user logged in or not
     if(!req.user) {
-        req.flash("message", "you need to be logged in to shorten URLs.");
+        req.flash("message", "You need to be logged in to shorten URLs.");
         return res.status(401).redirect('/login')
         // return res.status(401).render("index", {
         //     links: [],
@@ -69,7 +69,7 @@ exports.postUrl =  async ( req, res ) => {
         // host: req.host,
         links: links,
         // user: req.user || null,
-        message: "Short URL created!"
+        message: "Short URL Created!"
     });
   } catch (error) {
     console.log("error: ", error.message);
